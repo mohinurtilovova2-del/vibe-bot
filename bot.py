@@ -116,16 +116,9 @@ async def button_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
         keyboard = [[InlineKeyboardButton("⬅️ Orqaga", callback_data="back")]]
 
     elif data == "back":
-        # /start ga qaytish
-        await query.message.delete()
-        # start ni qayta chaqiramiz
-        fake_update = Update(
-            update_id=update.update_id,
-            message=query.message
-        )
         keyboard = [
             [
-                InlineKeyboardButton("🌐 Saytimiz", url="https://vibemedia.uz"),
+                InlineKeyboardButton("🌐 Saytimiz", url="https://t.me/farhodvibe"),
                 InlineKeyboardButton("📞 Bog'lanish", callback_data="contact"),
             ],
             [
@@ -134,8 +127,8 @@ async def button_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
             ],
             [InlineKeyboardButton("📝 Ariza topshirish", callback_data="apply")],
         ]
-        await query.message.reply_text(
-            "Asosiy menyu 👇",
+        await query.edit_message_text(
+            text="Asosiy menyu 👇",
             reply_markup=InlineKeyboardMarkup(keyboard)
         )
         return
